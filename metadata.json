@@ -1,0 +1,6 @@
+{
+  "name": "Academic E-Portfolio",
+  "description": "A digital academic e-portfolio for university submission and academic evaluation at American International University-Bangladesh (AIUB).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
