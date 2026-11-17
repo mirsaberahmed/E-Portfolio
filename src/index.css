@@ -10,6 +10,10 @@
     --dusty-rose: #D76895;
   }
 
+  html {
+    font-size: 16px;
+  }
+
   body {
     background-color: var(--bg-page);
     color: var(--charcoal);
@@ -35,4 +39,49 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #E88CAE;
+}
+
+/* Attractive animated styles for profile photo */
+@keyframes profileFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes profileGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(232, 140, 174, 0.35), 0 6px 20px -3px rgba(232, 140, 174, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(248, 220, 231, 0.55), 0 10px 25px -3px rgba(215, 104, 149, 0.4);
+  }
+}
+
+@keyframes gradientRotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.profile-animate-float {
+  animation: profileFloat 4.5s ease-in-out infinite;
+}
+
+.profile-glow-ring {
+  animation: profileGlowPulse 3s ease-in-out infinite;
+}
+
+.profile-gradient-border {
+  background: linear-gradient(135deg, #E88CAE, #F8DCE7, #D76895, #E88CAE);
+  background-size: 300% 300%;
+  animation: gradientRotate 5s ease infinite;
 }

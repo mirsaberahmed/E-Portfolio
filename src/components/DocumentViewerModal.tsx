@@ -170,20 +170,28 @@ export const DocumentViewerModal: React.FC<DocumentViewerModalProps> = ({
         <div className="flex-1 bg-[#F5F2EB] overflow-auto flex items-center justify-center p-4 relative select-none">
           {document.isAvailable ? (
             document.fileUrl ? (
-              <div
-                style={{
-                  transform: `scale(${zoomLevel / 100}) rotate(${rotation}deg)`,
-                  transition: 'transform 0.15s ease-out',
-                }}
-                className="max-w-full max-h-full flex items-center justify-center origin-center"
-              >
-                <img
+              document.fileUrl.endsWith('.pdf') || document.fileType === 'pdf' ? (
+                <iframe
                   src={document.fileUrl}
-                  alt={document.title}
-                  referrerPolicy="no-referrer"
-                  className="max-w-[85vw] max-h-[70vh] object-contain rounded-lg shadow-xl border border-slate-200 bg-white"
+                  title={document.title}
+                  className="w-full h-full min-h-[65vh] rounded-lg shadow-xl border border-slate-200 bg-white"
                 />
-              </div>
+              ) : (
+                <div
+                  style={{
+                    transform: `scale(${zoomLevel / 100}) rotate(${rotation}deg)`,
+                    transition: 'transform 0.15s ease-out',
+                  }}
+                  className="max-w-full max-h-full flex items-center justify-center origin-center"
+                >
+                  <img
+                    src={document.fileUrl}
+                    alt={document.title}
+                    referrerPolicy="no-referrer"
+                    className="max-w-[85vw] max-h-[70vh] object-contain rounded-lg shadow-xl border border-slate-200 bg-white"
+                  />
+                </div>
+              )
             ) : (
               /* High-fidelity official certificate format preview for verified documents */
               <div

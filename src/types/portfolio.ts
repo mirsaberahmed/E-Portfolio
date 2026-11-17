@@ -5,11 +5,25 @@ export interface StudentProfile {
   university: string;
   academicYear: string;
   email: string;
+  phone?: string;
   location: string;
   linkedin: string;
   github: string;
   profilePhoto: string;
   aboutMe: string;
+}
+
+export interface ReferenceItem {
+  name: string;
+  designation: string;
+  department: string;
+  institution: string;
+  email: string;
+}
+
+export interface VolunteeringItem {
+  organization: string;
+  role: string;
 }
 
 export interface CareerObjectiveData {
@@ -23,6 +37,9 @@ export interface EducationItem {
   degree: string;
   institution: string;
   departmentOrGroup: string;
+  faculty?: string;
+  group?: string;
+  board?: string;
   period: string;
   gpa: string;
   gpaScale: string;

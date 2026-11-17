@@ -28,7 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCV }) => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#F8DCE7]/80">
-      <div className="max-w-7xl mx-auto flex items-center justify-between gap-8 px-4 sm:px-6 lg:px-8 py-3.5">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-8 px-4 sm:px-6 lg:px-8 py-3">
         {/* Zone 1: Single text element wordmark */}
         <a
           href="#cover"
@@ -47,6 +47,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCV }) => {
             className="hover:text-[#D76895] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             Profile
+          </a>
+          <a
+            href="#video-introduction"
+            className="hover:text-[#D76895] transition-colors whitespace-nowrap shrink-0"
+          >
+            Video
           </a>
           <a
             href="#qualifications"
@@ -112,6 +118,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCV }) => {
             Personal Profile & Overview
           </a>
           <a
+            href="#video-introduction"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-sm font-medium text-[#29252B] hover:text-[#D76895] py-1"
+          >
+            Video Introduction
+          </a>
+          <a
             href="#objective"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-sm font-medium text-[#29252B] hover:text-[#D76895] py-1"
@@ -151,7 +164,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCV }) => {
             onClick={() => setMobileMenuOpen(false)}
             className="block text-sm font-medium text-[#29252B] hover:text-[#D76895] py-1"
           >
-            Contact Information
+            Academic Contact
           </a>
         </div>
       )}

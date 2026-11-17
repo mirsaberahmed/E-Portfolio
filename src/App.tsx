@@ -15,6 +15,7 @@ import {
 
 import { Navbar } from './components/Navbar';
 import { CoverHero } from './components/CoverHero';
+import { VideoIntroduction } from './components/VideoIntroduction';
 import { CareerObjective } from './components/CareerObjective';
 import { EducationalQualifications } from './components/EducationalQualifications';
 import { AcademicDocuments } from './components/AcademicDocuments';
@@ -24,6 +25,8 @@ import { ContactInformation } from './components/ContactInformation';
 
 import { DocumentViewerModal } from './components/DocumentViewerModal';
 import { FullCVModal } from './components/FullCVModal';
+
+const INTRO_VIDEO_URL = '/assets/intro_video.mp4';
 
 export default function App() {
   const [profile] = useState<StudentProfile>(DEFAULT_PROFILE);
@@ -60,7 +63,7 @@ export default function App() {
   };
 
   const scrollToNextSection = () => {
-    const elem = document.getElementById('objective');
+    const elem = document.getElementById('video-introduction');
     if (elem) {
       elem.scrollIntoView({ behavior: 'smooth' });
     }
@@ -76,13 +79,16 @@ export default function App() {
         {/* Cover Page with Left (Photo + Details) & Right (Personal Profile) */}
         <CoverHero profile={profile} onExplore={scrollToNextSection} />
 
-        {/* 01. Career Objective */}
+        {/* 01. Video Introduction */}
+        <VideoIntroduction videoUrl={INTRO_VIDEO_URL} />
+
+        {/* 02. Career Objective */}
         <CareerObjective objective={DEFAULT_CAREER_OBJECTIVE} />
 
-        {/* 02. Educational Qualifications */}
+        {/* 03. Educational Qualifications */}
         <EducationalQualifications educationList={DEFAULT_EDUCATION} />
 
-        {/* 03. Academic Documents (2 Folders: Academic Documents & Achievements Documents) */}
+        {/* 04. Academic Documents (2 Folders) */}
         <AcademicDocuments
           folders={DOCUMENT_FOLDERS}
           documents={documents}
@@ -90,13 +96,13 @@ export default function App() {
           onAttachFile={handleAttachDocumentFile}
         />
 
-        {/* 04. Academic Projects */}
+        {/* 05. Academic Projects */}
         <AcademicProjects projects={DEFAULT_ACADEMIC_PROJECTS} />
 
-        {/* 05. Technical Skills */}
+        {/* 06. Technical Skills & 07. Soft Skills */}
         <SkillsCompetencies />
 
-        {/* 06. Contact Information */}
+        {/* 08. Academic Contact & Information */}
         <ContactInformation profile={profile} />
       </main>
 
